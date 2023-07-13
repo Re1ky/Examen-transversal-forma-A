@@ -1,0 +1,153 @@
+#Listas y definiciones
+
+platinum=120000
+gold=80000
+silver=50000
+asiento=0
+cant_entr=0
+asiento_lugar=0
+posicion=0
+todos_los_asientos=[]
+num_asiento=0
+rut=[]
+cantidad_entrada_plat=0
+total_entrada_plat=0
+cantidad_entrada_gold=0
+total_entrada_gold=0
+cantidad_entrada_silver=0
+total_entrada_silver=0
+total=0
+cantidad=0
+asientos_disponibles= [
+[1,2,3,4, 5, 6, 7, 8, 9, 10],
+[11,12,13,14,15,16,17,18,19,20],
+[21,22,23,24,25,26,27,28,29,30],
+[31,32,33,34,35,36,37,38,39,40],
+[41,42,43,44,45,46,47,48,49,50],
+[51,52,53,54,55,56,57,58,59,60],
+[61,62,63,64,65,66,67,68,69,70],
+[71,72,73,74,75,76,77,78,79,80], 
+[81,82,83,84,85,86,87,88,89,90],
+[91,92,93,94,95,96,97,98,99,100]
+]
+
+#Aca defino la cantidad de entradas y la compra de estas 
+
+def comprar_entrada():
+    cant_entr=0
+    while cant_entr < 1 or entrada >3:
+        cant_entr=int(input("¿Cuantas entradas desea comprar? \n --- solo puede ser de 1 a 3 entradas ---"))
+
+    global asientos_disponibles
+for fila in asientos_disponibles:
+    for asiento in fila:
+        print(asiento, end=" ")
+    print()
+    
+#Aca hago un ciclo for in range para poder elegir uno de los asientos disponibles
+
+    global all_asientos
+    global rut_vip
+    global asiento_selec
+    for entrada in range (cant_entr):
+        asiento_lugar={"1", "2", "3"}
+        posicion = 0
+
+        while True:
+            num_asiento=int(input(f"Elija número de {asiento_lugar[posicion]} asientos: "))
+            for i in all_asientos:
+                if num_asiento in 1:
+                    all_asientos[1][numero_asiento-1]= "X"
+                    break
+                else:
+                    print("El asiento seleccionado no esta disponible, elija otro por favor")
+        asiento_selec.append(num_lugar)
+        posicion = posicion + 1
+
+#ahora faltaria implementarlo aca 
+
+print("")
+print("|--------------|")
+print("  ¡Bienvenido!")
+print("|--------------|")
+print("")
+while True:
+    print("¿Qué desea hacer?")
+    print("1) Comprar entradas")
+    print("2 Mostrar ubicaciones disponibles")
+    print("3) Ver listado de asistentes")
+    print("4) Mostrar ganancias totales")
+    print("5) Salir")
+    opcion=int(input("Seleccione una opción: "))
+    if opcion==1:
+        print("")
+        print("Qué tipo de entrada quiere comprar?")
+        print("")
+        print("1) Entrada Platinum (Asientos del 1 al 20)           $120.000")
+        print("2) Entrada Gold (Asientos del 21 al 50)              $80.000")
+        print("3) Entrada Silver (Asientos del 51 al 100)           $50.000")
+        print("")
+        opcion2=int(input("Seleccione una opción: "))
+        print("")
+        if opcion2==1:
+            cantidad=int(input("Seleccione la cantidad de entradas Platinum que desea comprar (min 1, max 3): "))
+            cantidad_entrada_plat += cantidad
+            total_entrada_plat+= cantidad * platinum
+            print("-------------------------------------------------------------------")
+            print(f"{asientos_disponibles}")
+            print("-------------------------------------------------------------------")
+            asiento=int(input("Seleccione un asiento del 1 al 20: "))
+            print("-------------------------------------------------------------------")
+            rut=int(input("Ingrese su rut para poder registrarlo (sin digito verificador, sin guion ni puntos EJ: 12345678): "))
+            print("-------------------------------------------------------------------")
+            print("¡Gracias por su compra!")
+            print("-------------------------------------------------------------------")
+        if opcion2==2:
+            cantidad=int(input("Seleccione la cantidad de entradas Gold que desea comprar (min 1, max 3): "))
+            cantidad_entrada_gold += cantidad
+            total_entrada_gold+= cantidad * gold
+            print("-------------------------------------------------------------------")
+            print(f"{asientos_disponibles}")
+            print("-------------------------------------------------------------------")
+            asiento=int(input("Seleccione un asiento del 21 al 50: "))
+
+            print("-------------------------------------------------------------------")
+            rut=int(input("Ingrese su rut para poder registrarlo (sin digito verificador, sin guion ni puntos EJ: 12345678): "))
+            print("-------------------------------------------------------------------")
+            print("¡Gracias por su compra!")
+            print("-------------------------------------------------------------------")
+        if opcion2==3:
+            cantidad=int(input("Seleccione la cantidad de entradas Silver que desea comprar (min 1, max 3): "))
+            cantidad_entrada_silver += cantidad
+            total_entrada_silver+= cantidad * silver
+            print("-------------------------------------------------------------------")
+            print(f"{asientos_disponibles}")
+            print("-------------------------------------------------------------------")
+            asiento=int(input("Seleccione un asiento del 51 al 100: "))
+            print("-------------------------------------------------------------------")
+            rut=int(input("Ingrese su rut para poder registrarlo (sin digito verificador, sin guion ni puntos EJ: 12345678): "))
+            print("-------------------------------------------------------------------")
+            print("¡Gracias por su compra!")
+            print("-------------------------------------------------------------------")    
+    if opcion==2:
+        print("-------------------------------------------------------------------")
+        print("Aqui se muestran los asientos disponibles (los asientos marcados con x estan vendidos)")
+        print(f"{asientos_disponibles}")
+        print("-------------------------------------------------------------------")
+    if opcion==3:
+        print("-------------------------------------------------------------------")
+        print("Aqui se muestra la lista de asistentes")
+        print(f"{rut}")
+        print("-------------------------------------------------------------------")
+    if opcion==4:
+        print("Estas son las ganancias totales:")
+        print("-------------------------------------------------------------------")
+        print("   Tipo entrada           Cantidad entrada               Total")
+        print(f"Platinum $120.000                {cantidad_entrada_plat}                         {total_entrada_plat}")
+        print(f"Gold $80.000                     {cantidad_entrada_gold}                         {total_entrada_gold}")
+        print(f"Silver $50.000                   {cantidad_entrada_silver}                         {total_entrada_silver}")
+        print(f"TOTAL                            {cantidad_entrada_plat+cantidad_entrada_gold+cantidad_entrada_silver}                         {total_entrada_plat+total_entrada_gold+total_entrada_silver}")
+        print("-------------------------------------------------------------------")
+    if opcion==5:
+        print("¡Gracias por usar este codigo. Que tenga un lindo dia!")
+        break
